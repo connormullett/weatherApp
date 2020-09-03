@@ -36,15 +36,19 @@ export class Home extends Component {
         {
             const description = this.state.weatherData.weather[0].description;
             const {temp, feels_like} = this.state.weatherData.main;
+            const area = this.state.weatherData.name;
             return (
                 <div>
                     <div>
-                        <h1>{this.capitalize(description)}</h1>
+                        <h1>Current weather for {this.capitalize(area)} area</h1>
+                    </div>
+                    <div>
+                        <h3>{this.capitalize(description)}</h3>
                         <p>Currently {this.floor(temp)}F</p>
                         <p>feels like {this.floor(feels_like)}F</p>
                     </div>
                     <div>
-                        <Link to="/forecast">Forcast</Link>
+                        <Link to="/forecast">Forecast</Link>
                     </div>
                 </div>
             )

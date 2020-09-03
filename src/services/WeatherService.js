@@ -17,7 +17,6 @@ async function getWeatherByGeoPosition(latitude, longitude) {
 
 async function getHourlyForecast(latitude, longitude) {
     const url = `${API_BASE_URL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`;
-    console.log(url);
     const response = await axios.get(url)
         .then((res) => {
             return res.data

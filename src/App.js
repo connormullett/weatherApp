@@ -18,16 +18,18 @@ class App extends React.Component {
         <h1>Geolocation is not enabled, enable it to continue</h1>
       </div>
     ) : this.props.coords ? (
-      <Router>
-        <Switch>
-          <Route path="/forecast">
-            <Forecast latitude={this.props.coords.latitude} longitude={this.props.coords.longitude}/>
-          </Route>
-          <Route>
-            <Home latitude={this.props.coords.latitude} longitude={this.props.coords.longitude}/>
-          </Route>
-        </Switch>
-      </Router>
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/forecast">
+              <Forecast latitude={this.props.coords.latitude} longitude={this.props.coords.longitude}/>
+            </Route>
+            <Route>
+              <Home latitude={this.props.coords.latitude} longitude={this.props.coords.longitude}/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     ) : (
       <div>Getting location data&hellip; </div>
     )

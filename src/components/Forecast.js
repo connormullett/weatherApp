@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { weatherService } from '../services/WeatherService';
+import { ForecastItem } from './ForecastItem';
+import { Link } from 'react-router-dom';
 
 export class Forecast extends Component {
 
@@ -20,15 +22,42 @@ export class Forecast extends Component {
             weatherData: weatherData,
             loading: false
         })
-        console.log(this.state.weatherData);
     }
 
     render() {
-        return (
-            <div>
-                <h1>Forecast</h1>
-            </div>
-        )
+        if (!this.state.loading) {
+            const data = this.state.weatherData.list.slice(0, 12);
+            return (
+                <div>
+                    <div>
+                        <h1>Forecast</h1>
+                    </div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>time</th>
+                                    <th>temperature</th>
+                                    <th>will feel like</th>
+                                    <th>humidity</th>
+                                    <th>overview</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { data.map((forecastData) => (
+                                    <tr>
+                                        <ForecastItem key={forecastData.dt} data={forecastData} />
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div><Link to="/">Back</Link></div>
+                </div>
+            )
+        } else {
+            return <h1>Loading</h1>
+        }
     }
 }
 
