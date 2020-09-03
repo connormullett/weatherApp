@@ -29,7 +29,7 @@ export class Forecast extends Component {
         if (!this.state.loading) {
             const data = this.state.weatherData.list.slice(0, 12);
             return (
-                <div>
+                <div className="forecast">
                     <div>
                         <h1>Forecast</h1>
                     </div>
@@ -39,11 +39,11 @@ export class Forecast extends Component {
                                 textAlign: 'left',
                             }}>
                                 <tr>
-                                    <th style={headerStyle}>time</th>
-                                    <th style={headerStyle}>temperature</th>
-                                    <th style={headerStyle}>will feel like</th>
-                                    <th style={headerStyle}>humidity</th>
-                                    <th style={headerStyle}>overview</th>
+                                    <th>time</th>
+                                    <th>temperature</th>
+                                    <th>feels like</th>
+                                    <th>humidity</th>
+                                    <th>overview</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,21 +59,20 @@ export class Forecast extends Component {
                 </div>
             )
         } else {
-            return <h1>Loading</h1>
+            return (
+                <div style={loadingStyle}>
+                    <h1>Loading</h1>
+                </div>
+            )
         }
     }
 }
 
-// 1E1E27 background
-// 4B4B5E button
-
-const headerStyle = {
-    padding: '10px',
-}
 
 const loadingStyle = {
     margin: 'auto',
-    textAlign: 'center'
+    textAlign: 'center',
+    verticalAlign: 'bottom'
 }
 
 const linkStyle = {
@@ -84,7 +83,7 @@ const linkStyle = {
     backgroundColor: '#4B4B5E',
     padding: '8px',
     borderRadius: '10px',
-    top: '5em'
+    top: '1em'
 }
 
 export default Forecast

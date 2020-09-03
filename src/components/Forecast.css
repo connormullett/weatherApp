@@ -1,12 +1,26 @@
 
+.forecast {
+    height: 40vh;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
 .data-table {
     background-color: #1E1E27;
     color: white;
     font-size: small;
+    padding: 1em;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.data-table tbody td {
+    text-align: left;
 }
 
 th {
-    width: 
+    width: 10em;
 }
 
 tr:nth-child(even) {

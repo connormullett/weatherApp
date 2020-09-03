@@ -33,9 +33,9 @@ export class ForecastItem extends Component {
         return (
             <React.Fragment>
             <td>{this.formatDateTime(datetime)}</td>
-            <td>{temp}</td>
-            <td>{feels_like}</td>
-            <td>{humidity}</td>
+            <td>{temp}F</td>
+            <td>{feels_like}F</td>
+            <td>{humidity}%</td>
             <td>{description}</td>
             </React.Fragment>
         )
