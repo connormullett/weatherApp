@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { weatherService } from '../services/WeatherService';
 import { ForecastItem } from './ForecastItem';
 import { Link } from 'react-router-dom';
+import './Forecast.css'
 
 export class Forecast extends Component {
 
@@ -33,14 +34,16 @@ export class Forecast extends Component {
                         <h1>Forecast</h1>
                     </div>
                     <div>
-                        <table>
-                            <thead>
+                        <table className="data-table">
+                            <thead style={{
+                                textAlign: 'left',
+                            }}>
                                 <tr>
-                                    <th>time</th>
-                                    <th>temperature</th>
-                                    <th>will feel like</th>
-                                    <th>humidity</th>
-                                    <th>overview</th>
+                                    <th style={headerStyle}>time</th>
+                                    <th style={headerStyle}>temperature</th>
+                                    <th style={headerStyle}>will feel like</th>
+                                    <th style={headerStyle}>humidity</th>
+                                    <th style={headerStyle}>overview</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,13 +55,36 @@ export class Forecast extends Component {
                             </tbody>
                         </table>
                     </div>
-                    <div><Link to="/">Back</Link></div>
+                    <div><Link style={linkStyle} to="/">Back</Link></div>
                 </div>
             )
         } else {
             return <h1>Loading</h1>
         }
     }
+}
+
+// 1E1E27 background
+// 4B4B5E button
+
+const headerStyle = {
+    padding: '10px',
+}
+
+const loadingStyle = {
+    margin: 'auto',
+    textAlign: 'center'
+}
+
+const linkStyle = {
+    position: 'relative',
+    marginTop: '20px',
+    textDecoration: 'none',
+    color: 'white',
+    backgroundColor: '#4B4B5E',
+    padding: '8px',
+    borderRadius: '10px',
+    top: '5em'
 }
 
 export default Forecast

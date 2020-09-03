@@ -1,0 +1,14 @@
+
+.data-table {
+    background-color: #1E1E27;
+    color: white;
+    font-size: small;
+}
+
+th {
+    width: 
+}
+
+tr:nth-child(even) {
+    background-color: #171725;
+}
